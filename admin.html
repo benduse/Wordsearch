@@ -3,20 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Portal - Word Search</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    #uploaded-words { margin-top: 20px; }
+    .theme-block {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+  </style>
 </head>
 <body>
   <h1>Super User / Admin Portal</h1>
-  <p>Upload a JSON file with your words and theme:</p>
+  <p>Upload a JSON file with your themes:</p>
 
-  <!-- Upload JSON -->
+  <!-- Upload -->
   <input type="file" id="jsonFile" accept=".json"><br><br>
-  <button onclick="uploadJSON()">Upload & Save Words</button>
+  <button onclick="uploadJSON()">Upload & Save Themes</button>
 
-  <!-- Display Parsed Words -->
-  <h2>Current Uploaded Words</h2>
-  <div id="uploaded-words">No words uploaded yet.</div>
+  <p>Upload a JSON file with your themes (this replaces the previous upload):</p>
+<input type="file" id="jsonFile" accept=".json"><br><br>
+<button onclick="uploadJSON()">Upload / Replace Themes</button>
 
-  <script src="js/admin.js"></script>
+  <!-- Uploaded result -->
+  <h2>Uploaded Themes</h2>
+  <div id="uploaded-words">No themes uploaded yet.</div>
+
+  <script src="admin.js"></script>
 </body>
 </html>

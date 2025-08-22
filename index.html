@@ -81,7 +81,13 @@
         <button onclick="generateFromDefault()">Generate with Default Words</button>
         <button onclick="generateFromFile()">Generate from File</button>
     </div>
-    
+
+    <div id="theme-selector-container">
+  <label for="theme-selector">Choose a theme:</label>
+  <select id="theme-selector" onchange="onThemeSelected(this.value)">
+    <option value="">-- Select Theme --</option>
+  </select>
+</div>
    <div class="puzzle-container">
     <div class="grid-section">
         <div id="puzzle-grid"></div>
@@ -107,7 +113,7 @@
     </div>
 </div>
     
-    <script src="word-search.js"></script>
+    <script src="game.js"></script>
     <script>
   function toggleInstructions() {
     const content = document.getElementById('instructions-content');

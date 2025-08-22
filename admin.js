@@ -15,19 +15,19 @@ function uploadJSON() {
     try {
       const data = JSON.parse(event.target.result);
 
-     if (!data.themes || !Array.isArray(data.themes)) {
-  alert("Invalid JSON: Expected { themes: [{ theme: '', words: [] }, ...] }");
-  return;
-}
+      // Expecting { "themes": [{ "theme": "Animals", "words": ["CAT","DOG"] }, ...] }
+      if (!data.themes || !Array.isArray(data.themes)) {
+        alert("Invalid JSON: Expected { themes: [{ theme: '', words: [] }, ...] }");
+        return;
+      }
 
-      // Save to localStorage so User game can access
+      // ✅ Save themes for user game (in browser localStorage)
       localStorage.setItem('wordSearchThemes', JSON.stringify(data.themes));
 
-      // Show uploaded words
-      displayWords(data);
+      // ✅ Show uploaded themes in the admin portal
+      displayThemes(data.themes);
 
-      alert("✅ Words successfully uploaded and saved for users!");
-
+      alert("✅ Themes successfully uploaded and saved for users!");
     } catch (error) {
       alert("Error parsing JSON: " + error.message);
     }
@@ -42,14 +42,24 @@ function displayThemes(themes) {
 
   themes.forEach((themeObj, i) => {
     const block = document.createElement('div');
-    block.innerHTML = `<h3>Theme ${i+1}: ${themeObj.theme}</h3>
-       <ul>${themeObj.words.map(w => `<li>${w}</li>`).join('')}</ul>`;
+    block.innerHTML = `
+      <h3>Theme ${i+1}: ${themeObj.theme}</h3>
+      <ul>${themeObj.words.map(w => `<li>${w}</li>`).join("")}</ul>
+    `;
     container.appendChild(block);
   });
 }
 
-// Auto-load any saved data so Admin can see last uploaded file
+// ✅ Auto-load any saved data when the page opens
 window.addEventListener("load", () => {
   const saved = localStorage.getItem('wordSearchThemes');
-  if (saved) displayThemes(JSON.parse(saved));
+  if (saved) {
+    displayThemes(JSON.parse(saved));
+  }
 });
+
+function clearThemes() {
+  localStorage.removeItem('wordSearchThemes');
+  document.getElementById('uploaded-words').innerHTML = "No themes uploaded yet.";
+  alert("❌ All themes cleared. User will now fall back to defaults.");
+}
