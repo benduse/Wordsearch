@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+.instructions-box {
+  margin: 20px 0;
+}
+
+.instructions-toggle {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  text-align: center;
+}
+
+.instructions-toggle:hover {
+  background-color: #0056b3;
+}
+
+.instructions-content {
+  display: none;
+  margin-top: 15px;
+  background: #ffffff;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  line-height: 1.6;
+}
+
+.instructions-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.instructions-content ol {
+  padding-left: 20px;
+}
+
+.instructions-content li {
+  margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+    <h1>Kinyarwanda Word Search Puzzle</h1>
+ <div class="instructions-box">
+    <!-- 📌 HOW TO PLAY BOX START -->
+<div class="instructions-box">
+  <button class="instructions-toggle" onclick="toggleInstructions()">📖 How to Play</button>
+  <div class="instructions-content" id="instructions-content">
+    <h3>📝 How to Play</h3>
+    <ol>
+      <li><strong>Start the Puzzle:</strong> A grid of letters will load along with a word list on the right. Words may run <em>horizontally, vertically, or diagonally</em>.</li>
+      <li><strong>Find a Word:</strong> Look for the <em>first</em> and <em>last</em> letters of any word from the list in the grid.</li>
+      <li><strong>Click the First Letter:</strong> Select the first letter and a <strong>5‑second timer</strong> starts.</li>
+      <li><strong>Click the Last Letter:</strong> Within 5 seconds, click the last letter. If correct, the word highlights in green and you earn <strong>+10 points</strong>.</li>
+      <li><strong>Complete the Game:</strong> Keep finding words until all are discovered. Your score and progress bar update as you play!</li>
+    </ol>
+  </div>
+</div>
+<!-- 📌 HOW TO PLAY BOX END -->
+  </div>
+
+    <div class="controls">
+        <div class="file-input">
+            <label for="jsonFile">Upload JSON file:</label>
+            <input type="file" id="jsonFile" accept=".json">
+        </div>
+        <button onclick="generateFromDefault()">Generate with Default Words</button>
+        <button onclick="generateFromFile()">Generate from File</button>
+    </div>
+    
+   <div class="puzzle-container">
+    <div class="grid-section">
+        <div id="puzzle-grid"></div>
+    </div>
+    
+    <div class="game-info">
+        <div class="score-section">
+            <div class="score-display">Score: <span id="current-score">0</span></div>
+            <div class="timer-display" id="timer-display"></div>
+    <div id="points-animation-container"></div>
+            <div id="points-animation-container"></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="stats">
+                <span>Found: <span id="words-found">0</span></span>
+                <span>Total: <span id="total-words">0</span></span>
+            </div>
+        </div>
+        
+        <div id="word-list-container"></div>
+        <div id="game-complete-message"></div>
+    </div>
+</div>
+    
+    <script src="word-search.js"></script>
+    <script>
+  function toggleInstructions() {
+    const content = document.getElementById('instructions-content');
+    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+</body>
+</html>

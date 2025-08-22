@@ -1,0 +1,100 @@
+{
+  "themes": [
+  {
+    "theme": "greetings",
+    "words": ["Muraho!", "Ikaze", "Uraho", "Oya", "Ntacyo", "Ijoro", "Mwaramutse"]
+  },
+  {
+    "theme": "courtesy",
+    "words": ["Urakoze", "Tegereza", "Mbabarira"]
+  },
+  {
+    "theme": "expressions",
+    "words": ["Ndagukunda", "Ni byiza", "Ni sawa", "Ndabizi", "Turi kumwe", "Cyane", "Neza"]
+  },
+  {
+    "theme": "activities",
+    "words": ["Ndi gukora"]
+  },
+  {
+    "theme": "family terms",
+    "words": ["Umugabo", "Umugore", "Umwana", "Mama", "Data", "papa", "Musaza", "Mushiki"]
+  },
+  {
+    "theme": "places",
+    "words": ["Umujyi", "Inzu", "Isoko", "Ishuri", "Itorero"]
+  },
+  {
+    "theme": "objects",
+    "words": ["Igitabo", "Telefone"]
+  },
+  {
+    "theme": "commands",
+    "words": ["Komeza", "Ngwino", "Reka tugende"]
+  },
+  {
+    "theme": "relationships",
+    "words": ["Inshuti"]
+  },
+  {
+    "theme": "verbs",
+    "words": ["Ndumva", "Ndategereje", "Kurya", "Kunywa", "Kwicara", "Kumenya", "Kugenda", "Ndiruka", "Gusiba", "Kwicara"]
+  },
+  {
+    "theme": "time",
+    "words": ["Uyu munsi", "Ejo hazaza", "Igihe", "Ubu", "Nimugoroba", "Ijoro"]
+  },
+  {
+    "theme": "spiritual terms",
+    "words": ["Imana", "Umugisha"]
+  },
+  {
+    "theme": "emotions",
+    "words": ["Ibyishimo", "Urukundo"]
+  },
+  {
+    "theme": "actions",
+    "words": ["Ndicaye"]
+  },
+  {
+    "theme": "education",
+    "words": ["Ishuri"]
+  },
+  {
+    "theme": "basic words",
+    "words": ["Amazi", "Ibiryo", "Ibintu", "Amafaranga"]
+  },
+  {
+    "theme": "adjectives",
+    "words": ["Nziza"]
+  },
+  {
+    "theme": "technology",
+    "words": ["Telefone"]
+  },
+  {
+    "theme": "adverbs",
+    "words": ["Vuba", "Buhoro", "Neza", "Cyane", "Nanone"]
+  },
+  {
+    "theme": "work",
+    "words": ["Akazi"]
+  },
+  {
+    "theme": "days_of_week",
+    "words": ["Kuwa mbere", "Kuwa kabiri", "Kuwa gatatu", "Kuwa kane", "Kuwa gatanu"]
+  },
+  {
+    "theme": "body parts",
+    "words": ["Umutwe", "Ijisho", "Izuru", "Umunwa", "Inda", "Ivi", "Akananwa", "Ijosi", "Ivi", "Ijosi", "Amatama"]
+  },
+  {
+    "theme": "animals",
+    "words": ["Intare", "Inzovu", "Ingwe", "Imbogo", "Impyisi", "Imbwa", "Injangwe", "Ihene", "Intama", "Inka", "Inkoko", "Inuma", "Ifi", "Twiga"]
+  },
+  {
+    "theme": "food",
+    "words": ["Umuceri", "Igikoma", "Amata", "Ikawa", "Icyayi", "Igi", "Ubuki", "Umunyu", "Uburo"]
+  }
+]
+}

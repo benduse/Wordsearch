@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Portal - Word Search</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Super User / Admin Portal</h1>
+  <p>Upload a JSON file with your words and theme:</p>
+
+  <!-- Upload JSON -->
+  <input type="file" id="jsonFile" accept=".json"><br><br>
+  <button onclick="uploadJSON()">Upload & Save Words</button>
+
+  <!-- Display Parsed Words -->
+  <h2>Current Uploaded Words</h2>
+  <div id="uploaded-words">No words uploaded yet.</div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
