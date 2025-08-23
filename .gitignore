@@ -1,0 +1,15 @@
+firebase-config.js
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+.vscode/
+.idea/
+npm-debug.log
+yarn-error.log
+coverage/
+logs/
+*.local
+*.log
+*.env       

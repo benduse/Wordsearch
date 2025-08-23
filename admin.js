@@ -11,23 +11,25 @@ function uploadJSON() {
 
   const reader = new FileReader();
 
-  reader.onload = function(event) {
+  reader.onload = function (event) {
     try {
       const data = JSON.parse(event.target.result);
 
-      // Expecting { "themes": [{ "theme": "Animals", "words": ["CAT","DOG"] }, ...] }
       if (!data.themes || !Array.isArray(data.themes)) {
-        alert("Invalid JSON: Expected { themes: [{ theme: '', words: [] }, ...] }");
+        alert("Invalid JSON format. Expected { themes: [{ theme:'', words: [] }, ...] }");
         return;
       }
 
-      // ✅ Save themes for user game (in browser localStorage)
-      localStorage.setItem('wordSearchThemes', JSON.stringify(data.themes));
-
-      // ✅ Show uploaded themes in the admin portal
-      displayThemes(data.themes);
-
-      alert("✅ Themes successfully uploaded and saved for users!");
+      // ✅ Save to Firestore (overwrite previous themes)
+      db.collection("wordsearch").doc("themes").set({ themes: data.themes })
+        .then(() => {
+          displayThemes(data.themes);
+          alert("✅ Themes uploaded to Firebase! All users will now see these themes.");
+        })
+        .catch(err => {
+          console.error("Error saving to Firebase:", err);
+          alert("❌ Failed to save themes to Firebase.");
+        });
     } catch (error) {
       alert("Error parsing JSON: " + error.message);
     }
@@ -39,27 +41,20 @@ function uploadJSON() {
 function displayThemes(themes) {
   const container = document.getElementById('uploaded-words');
   container.innerHTML = "";
-
   themes.forEach((themeObj, i) => {
     const block = document.createElement('div');
-    block.innerHTML = `
-      <h3>Theme ${i+1}: ${themeObj.theme}</h3>
-      <ul>${themeObj.words.map(w => `<li>${w}</li>`).join("")}</ul>
-    `;
+    block.innerHTML = `<h3>Theme ${i + 1}: ${themeObj.theme}</h3>
+      <ul>${themeObj.words.map(w => `<li>${w}</li>`).join("")}</ul>`;
     container.appendChild(block);
   });
 }
 
-// ✅ Auto-load any saved data when the page opens
+// ✅ Auto-load last uploaded file from Firebase
 window.addEventListener("load", () => {
-  const saved = localStorage.getItem('wordSearchThemes');
-  if (saved) {
-    displayThemes(JSON.parse(saved));
-  }
+  db.collection("wordsearch").doc("themes").get().then(doc => {
+    if (doc.exists) {
+      const data = doc.data();
+      if (data.themes) displayThemes(data.themes);
+    }
+  });
 });
-
-function clearThemes() {
-  localStorage.removeItem('wordSearchThemes');
-  document.getElementById('uploaded-words').innerHTML = "No themes uploaded yet.";
-  alert("❌ All themes cleared. User will now fall back to defaults.");
-}
