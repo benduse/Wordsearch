@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <h1>Super User / Admin Portal</h1>
+  <h1>Admin Portal</h1>
   <p>Upload a JSON file with your themes:</p>
 
   <!-- Upload -->
@@ -27,7 +27,7 @@
 
   <p>Upload a JSON file with your themes (this replaces the previous upload):</p>
 <input type="file" id="jsonFile" accept=".json"><br><br>
-<button onclick="uploadJSON()">Upload / Replace Themes</button>
+<button onclick="uploadJSON()">Replace Themes</button>
 
 <button onclick="clearThemes()" style="background:red; color:white; margin-top:10px;">
   Clear All Themes
@@ -37,9 +37,11 @@
   <h2>Uploaded Themes</h2>
   <div id="uploaded-words">No themes uploaded yet.</div>
 
-  <script src="admin.js"></script>
+  <script src="firebase-config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-<script src="js/firebase-config.js"></script>
+
+
+<script src="admin.js"></script>
 </body>
 </html>

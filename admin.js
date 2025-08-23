@@ -1,4 +1,3 @@
-// js/admin.js
 
 function uploadJSON() {
   const fileInput = document.getElementById('jsonFile');
@@ -58,3 +57,21 @@ window.addEventListener("load", () => {
     }
   });
 });
+
+function clearThemes() {
+  if (!confirm("⚠️ Are you sure you want to delete ALL themes? This cannot be undone.")) {
+    return;
+  }
+
+  // Overwrites the document with an empty themes array
+  db.collection("wordsearch").doc("themes").set({ themes: [] })
+    .then(() => {
+      // Reset the UI
+      const container = document.getElementById('uploaded-words');
+      container.innerHTML = "No themes uploaded yet.";
+      alert("✅ All themes have been cleared.");
+    })
+    .catch(err => {
+      console.error("Error clearing themes:", err);
+      alert("❌ Failed to clear themes.");
+    });
