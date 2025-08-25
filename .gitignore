@@ -12,3 +12,4 @@ logs/
 *.local
 *.log
 *.env       
+firebase-config.js
