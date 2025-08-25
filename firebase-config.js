@@ -1,6 +1,6 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyCjtKQ7UoV3j4taDn6bNi3ONRlMsBaijBU",
-  authDomain: "ejowordsearch.firebaseapp.com",
+   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: "ejowordsearch",
   storageBucket: "ejowordsearch.firebasestorage.app",
   messagingSenderId: "29577044517",

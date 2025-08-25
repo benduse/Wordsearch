@@ -1,3 +1,4 @@
+firebase-config.js
 node_modules/
 dist/
 build/
@@ -12,4 +13,3 @@ logs/
 *.local
 *.log
 *.env       
-firebase-config.js
