@@ -333,7 +333,7 @@ class WordSearchGenerator {
 const generator = new WordSearchGenerator(10);
 
 const defaultWords = {
-    words: ["HELLO", "WORLD", "CODE", "PUZZLE"],
+    words: ["AMATA", "MAMA", "KURYA", "KUGURUKA", "INZU", "ISUKU", "AMAFARANGA", "UMUTIMA", "UMUSORE", "UMUKOBWA"],
     theme: "Default Puzzle"
 };
 

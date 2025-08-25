@@ -63,6 +63,17 @@ function clearThemes() {
     return;
   }
 
+  db.collection("wordsearch").doc("themes").delete()
+    .then(() => {
+      document.getElementById('uploaded-words').innerHTML = "No themes uploaded yet.";
+      alert("✅ All themes document deleted.");
+    })
+    .catch(err => {
+      console.error("Error deleting themes:", err);
+      alert("❌ Failed to delete themes.");
+    });
+
+
   // Overwrites the document with an empty themes array
   db.collection("wordsearch").doc("themes").set({ themes: [] })
     .then(() => {
@@ -75,3 +86,4 @@ function clearThemes() {
       console.error("Error clearing themes:", err);
       alert("❌ Failed to clear themes.");
     });
+  }
