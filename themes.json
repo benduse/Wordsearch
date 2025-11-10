@@ -2,7 +2,7 @@
   "themes": [
   {
     "theme": "greetings",
-    "words": ["Muraho!", "Ikaze", "Uraho", "Oya", "Ntacyo", "Ijoro", "Mwaramutse"]
+    "words": ["Muraho", "Ikaze", "Uraho", "Oya", "Ntacyo", "Ijoro", "Mwaramutse"]
   },
   {
     "theme": "courtesy",
@@ -13,10 +13,6 @@
     "words": ["Ndagukunda", "Ni byiza", "Ni sawa", "Ndabizi", "Turi kumwe", "Cyane", "Neza"]
   },
   {
-    "theme": "activities",
-    "words": ["Ndi gukora"]
-  },
-  {
     "theme": "family terms",
     "words": ["Umugabo", "Umugore", "Umwana", "Mama", "Data", "papa", "Musaza", "Mushiki"]
   },
@@ -25,16 +21,12 @@
     "words": ["Umujyi", "Inzu", "Isoko", "Ishuri", "Itorero", "Icyaro"]
   },
   {
-    "theme": "objects",
-    "words": ["Igitabo", "Telefone"]
-  },
-  {
     "theme": "commands",
     "words": ["Komeza", "Ngwino", "Genda", "Hagarara", "Garuka", "Fungura", "Funga", "Reba", "Icara", "Vuga", "Tega amatwi", "Andika", "Soma", "Umva"]
   },
   {
     "theme": "relationships",
-    "words": ["Inshuti"]
+    "words": ["Inshuti", "Umukunzi", "Umuryango", "Umuvandimwe", "umufasha", "Umubyeyi", "umuturanyi"]
   },
   {
     "theme": "verbs",
@@ -46,27 +38,15 @@
   },
   {
     "theme": "spiritual terms",
-    "words": ["Imana", "Umugisha"]
+    "words": ["Imana", "Umugisha", "Gusenga"]
   },
   {
     "theme": "emotions",
-    "words": ["Ibyishimo", "Urukundo"]
-  },
-  {
-    "theme": "actions",
-    "words": ["Ndicaye"]
-  },
-  {
-    "theme": "education",
-    "words": ["Ishuri"]
+    "words": ["Ibyishimo", "Urukundo", "Agahinda", "Icyizere", "Umujinya"]
   },
   {
     "theme": "basic words",
     "words": ["Amazi", "Ibiryo", "Ibintu", "Amafaranga"]
-  },
-  {
-    "theme": "adjectives",
-    "words": ["Nziza"]
   },
   {
     "theme": "technology",
@@ -75,10 +55,6 @@
   {
     "theme": "adverbs",
     "words": ["Vuba", "Buhoro", "Neza", "Cyane", "Nanone"]
-  },
-  {
-    "theme": "work",
-    "words": ["Akazi"]
   },
   {
     "theme": "days_of_week",
@@ -94,7 +70,15 @@
   },
   {
     "theme": "food",
-    "words": ["Umuceri", "Igikoma", "Amata", "Ikawa", "Icyayi", "Igi", "Ubuki", "Umunyu", "Uburo"]
+    "words": ["Umuceri", "Igikoma", "Amata", "Ikawa", "Icyayi", "Igi", "Ubuki", "Umunyu", "Inyama", "Isombe", "Ibihaza", "Imineke", "Ibinyomoro", "Imbuto"]
+  },
+  {
+    "theme": "fruits",
+    "words": ["ikinyomoro", "itunda", "inanasi", "umuneke", "gaperi", "maracuja", "indimu", "amapera", "ipapayi", "avoka"]
+  },
+  {
+    "theme": "colors",
+    "words": ["Umutuku", "Ubururu", "Icyatsi", "Umuhondo", "Umukara", "Umweru"]
   }
 ]
 }
