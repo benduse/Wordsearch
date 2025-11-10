@@ -22,7 +22,7 @@
   },
   {
     "theme": "places",
-    "words": ["Umujyi", "Inzu", "Isoko", "Ishuri", "Itorero"]
+    "words": ["Umujyi", "Inzu", "Isoko", "Ishuri", "Itorero", "Icyaro"]
   },
   {
     "theme": "objects",
@@ -30,7 +30,7 @@
   },
   {
     "theme": "commands",
-    "words": ["Komeza", "Ngwino", "Reka tugende"]
+    "words": ["Komeza", "Ngwino", "Genda", "Hagarara", "Garuka", "Fungura", "Funga", "Reba", "Icara", "Vuga", "Tega amatwi", "Andika", "Soma", "Umva"]
   },
   {
     "theme": "relationships",

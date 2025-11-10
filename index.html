@@ -1,149 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Theme Color (for mobile browsers) -->
+		<meta name="theme-color" content="#317EFB" />
 
+		<title>Word Search</title>
+		<link rel="stylesheet" href="game.css" />
+		
+	</head>
+	<body>
+		<h1>Kinyarwanda Word Search Puzzle</h1>
+		<div class="pronunciation-guide-box">
+			<button
+				class="pronunciation-guide"
+				onClick="togglePronunciationInstructions()"
+			>
+				Pronunciation Guide
+			</button>
+			<div class="pronunciation-content" id="pronunciation-guide">
+				<p>
+					Unlike other languages that you already know, Kinyarwanda has only 23
+					alphabets. The letters Q and X do not exist in the Kinyarwanda
+					language. I will list them for the sake of showing you that they do
+					not exist but keep in mind tha you will not encounter them in original
+					Kinyarwanda words.
+				</p>
+				<h3 class="vowels-pronunciation">📢Vowels Pronunciation Guide</h3>
+				<ol>
+					<li><strong>A</strong> - pronounced as "ah" like in "father"</li>
+					<li><strong>E</strong> - pronounced as "eh" like in "bed"</li>
+					<li><strong>I</strong> - pronounced as "ee" like in "see"</li>
+					<li><strong>O</strong> - pronounced as "oh" like in "go"</li>
+					<li><strong>U</strong> - pronounced as "oo" like in "food"</li>
+				</ol>
+				<h3 class="consonants-pronunciation">
+					📢Consonants Pronunciation Guide
+				</h3>
+				<ol>
+					<li><strong>C</strong> - pronounced as "ch" like in "church"</li>
+					<li><strong>D</strong> - pronounced as "d" like in "dog"</li>
+					<li><strong>F</strong> - pronounced as "f" like in "fun"</li>
+					<li><strong>G</strong> - pronounced as "g" like in "go"</li>
+					<li><strong>H</strong> - pronounced as "h" like in "hat"</li>
+					<li><strong>J</strong> - pronounced as "j" like in "jump"</li>
+					<li><strong>K</strong> - pronounced as "k" like in "kite"</li>
+					<li><strong>L</strong> - pronounced as "l" like in "love"</li>
+					<li><strong>M</strong> - pronounced as "m" like in "mom"</li>
+					<li><strong>N</strong> - pronounced as "n" like in "nest"</li>
+					<li><strong>P</strong> - pronounced as "p" like in "pen"</li>
+					<li><s>Q - doesn't exist</s></li>
+					<li><strong>R</strong> - pronounced as "r" like in "run"</li>
+					<li><strong>S</strong> - pronounced as "s" like in "sun"</li>
+					<li><strong>T</strong> - pronounced as "t" like in "tree"</li>
+					<li><strong>V</strong> - pronounced as "v" like in "van"</li>
+					<li><strong>W</strong> - pronounced as "w" like in "water"</li>
+					<li><s>X doesn't exist</s></li>
+					<li><strong>Y</strong> - pronounced as <strong> "y" </strong>like in "yam"</li>
+					<li><strong>Z</strong> - pronounced as "z" like in "zoo"</li>
+				</ol>
+			</div>
+		</div>
 
-  <meta name="description" content="Enjoy a fun and challenging word search puzzle game with endless grids, sharpen your mind, and play anytime on any device." />
-  <meta name="keywords" content="your, app, keywords, relevant, topics" />
-  <meta name="author" content="Your Company or Name" />
+		<div class="instructions-box">
+			<!-- 📌 HOW TO PLAY BOX START -->
+			<div class="instructions-box">
+				<button class="instructions-toggle" onclick="toggleInstructions()">
+					📖 How to Play
+				</button>
+				<div class="instructions-content" id="instructions-content">
+					<h3>📝 How to Play</h3>
+					<ol>
+						<li>
+							<strong>Start the Puzzle:</strong> A grid of letters will load
+							along with a word list on the right. Words may run
+							<em>horizontally, vertically, or diagonally</em>.
+						</li>
+						<li>
+							<strong>Find a Word:</strong> Look for the <em>first</em> and
+							<em>last</em> letters of any word from the list in the grid.
+						</li>
+						<li>
+							<strong>Click the First Letter:</strong> Select the first letter
+							and a <strong>5‑second timer</strong> starts.
+						</li>
+						<li>
+							<strong>Click the Last Letter:</strong> Within 5 seconds, click
+							the last letter. If correct, the word highlights in green and you
+							earn <strong>+10 points</strong>.
+						</li>
+						<li>
+							<strong>Complete the Game:</strong> Keep finding words until all
+							are discovered. Your score and progress bar update as you play!
+						</li>
+					</ol>
+				</div>
+			</div>
+			<!-- 📌 HOW TO PLAY BOX END -->
+		</div>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/" />
-  <meta property="og:title" content="Your App Name" />
-  <meta property="og:description" content="A short description of your app for social media sharing." />
-  <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
+		<div id="theme-selector-container">
+			<label for="theme-selector">Choose a theme:</label>
+			<select id="theme-selector" onchange="onThemeSelected(this.value)">
+				<option value="">-- Select Theme --</option>
+			</select>
+		</div>
+		<div class="puzzle-container">
+			<div class="grid-section">
+				<div id="puzzle-grid"></div>
+			</div>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://x.com/Nbenduse" />
-  <meta name="twitter:title" content="Word Search Puzzle – Fun & Addictive Game" />
-  <meta name="twitter:description" content="Challenge your brain with endless word search puzzles. Find hidden words, sharpen your focus, and enjoy hours of fun!" />
-  <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
+			<div class="game-info">
+				<div class="score-section">
+					<div class="score-display">
+						Score: <span id="current-score">0</span>
+					</div>
+					<div class="timer-display" id="timer-display"></div>
+					<div id="points-animation-container"></div>
+					<div id="points-animation-container"></div>
+					<div class="progress-bar">
+						<div class="progress-fill" id="progress-fill"></div>
+					</div>
+					<div class="stats">
+						<span>Found: <span id="words-found">0</span></span>
+						<span>Total: <span id="total-words">0</span></span>
+					</div>
+				</div>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png" />
+				<div id="word-list-container"></div>
+				<div id="game-complete-message"></div>
+			</div>
+		</div>
 
-  <!-- Theme Color (for mobile browsers) -->
-  <meta name="theme-color" content="#317EFB" />
+		<script src="game.js"></script>
+		<!-- Firebase SDKs -->
+		<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    <title>Word Search</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-.instructions-box {
-  margin: 20px 0;
-}
+		<!-- Your config -->
+		<script type="module" src="firebase-config.js"></script>
+		<script>
+			function toggleInstructions() {
+				const content = document.getElementById("instructions-content");
+				content.style.display =
+					content.style.display === "block" ? "none" : "block";
+			}
 
-.instructions-toggle {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  width: 200px;
-  text-align: center;
-}
-
-.instructions-toggle:hover {
-  background-color: #0056b3;
-}
-
-.instructions-content {
-  display: none;
-  margin-top: 15px;
-  background: #ffffff;
-  border: 2px solid #007bff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  line-height: 1.6;
-}
-
-.instructions-content h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-.instructions-content ol {
-  padding-left: 20px;
-}
-
-.instructions-content li {
-  margin-bottom: 10px;
-}
-    </style>
-</head>
-<body>
-    <h1>Kinyarwanda Word Search Puzzle</h1>
- <div class="instructions-box">
-    <!-- 📌 HOW TO PLAY BOX START -->
-<div class="instructions-box">
-  <button class="instructions-toggle" onclick="toggleInstructions()">📖 How to Play</button>
-  <div class="instructions-content" id="instructions-content">
-    <h3>📝 How to Play</h3>
-    <ol>
-      <li><strong>Start the Puzzle:</strong> A grid of letters will load along with a word list on the right. Words may run <em>horizontally, vertically, or diagonally</em>.</li>
-      <li><strong>Find a Word:</strong> Look for the <em>first</em> and <em>last</em> letters of any word from the list in the grid.</li>
-      <li><strong>Click the First Letter:</strong> Select the first letter and a <strong>5‑second timer</strong> starts.</li>
-      <li><strong>Click the Last Letter:</strong> Within 5 seconds, click the last letter. If correct, the word highlights in green and you earn <strong>+10 points</strong>.</li>
-      <li><strong>Complete the Game:</strong> Keep finding words until all are discovered. Your score and progress bar update as you play!</li>
-    </ol>
-  </div>
-</div>
-<!-- 📌 HOW TO PLAY BOX END -->
-  </div>
-
-    <div id="theme-selector-container">
-  <label for="theme-selector">Choose a theme:</label>
-  <select id="theme-selector" onchange="onThemeSelected(this.value)">
-    <option value="">-- Select Theme --</option>
-  </select>
-</div>
-   <div class="puzzle-container">
-    <div class="grid-section">
-        <div id="puzzle-grid"></div>
-    </div>
-    
-    <div class="game-info">
-        <div class="score-section">
-            <div class="score-display">Score: <span id="current-score">0</span></div>
-            <div class="timer-display" id="timer-display"></div>
-    <div id="points-animation-container"></div>
-            <div id="points-animation-container"></div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <div class="stats">
-                <span>Found: <span id="words-found">0</span></span>
-                <span>Total: <span id="total-words">0</span></span>
-            </div>
-        </div>
-        
-        <div id="word-list-container"></div>
-        <div id="game-complete-message"></div>
-    </div>
-</div>
-    
-    <script src="game.js"></script>
-    <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-<!-- Your config -->
-<script src="firebase-config.js"></script>
-    <script>
-  function toggleInstructions() {
-    const content = document.getElementById('instructions-content');
-    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-  }
-</script>
-</body>
+			function togglePronunciationInstructions() {
+				const content = document.getElementById(
+					"pronunciation-guide"
+				);
+				content.style.display =
+					content.style.display === "block" ? "none" : "block";
+			}
+		</script>
+		<div class="footer">Made with ❤️ by Ben</div>
+	</body>
 </html>

@@ -1,6 +1,14 @@
+h1{
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    margin-top: 20px;
+    margin-bottom: 20px;    
 
+}
         body {
             font-family: 'Courier New', monospace;
+            background-color: #ccc;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
@@ -113,8 +121,9 @@
 }
 
 .game-info {
-    flex: 1;
-    min-width: 300px;
+    min-width: 450px;
+    display: grid;
+    grid-template-columns: auto;
 }
 
 .grid-cell.found {
@@ -199,3 +208,120 @@
     margin-top: 15px;
     font-size: 14px;
 }
+
+.footer{
+    position:flex;
+    text-align: center;
+    font-size: 20px;
+    color: #666;
+    font-weight: bold;
+    margin-top: 30px;
+}
+@media screen and (max-width: 400px) {
+    .puzzle-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-info {
+        min-width: auto;
+        width: 100%;
+    }
+
+}
+
+/*for instrution boxes */
+/* Instructions Box for how to play */
+			.instructions-box {
+				margin: 20px 0;
+			}
+
+			.instructions-toggle {
+				background-color: #007bff;
+				color: white;
+				border: none;
+				padding: 12px 18px;
+				font-size: 16px;
+				border-radius: 6px;
+				cursor: pointer;
+				font-weight: bold;
+				transition: background-color 0.3s ease;
+				width: 200px;
+				text-align: center;
+			}
+
+			.instructions-toggle:hover {
+				background-color: #0056b3;
+			}
+
+			.instructions-content {
+				display: none;
+				margin-top: 15px;
+				background: #ffffff;
+				border: 2px solid #007bff;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+				line-height: 1.6;
+			}
+
+			.instructions-content h3 {
+				margin-top: 0;
+				color: #333;
+			}
+
+			.instructions-content ol {
+				padding-left: 20px;
+			}
+
+			.instructions-content li {
+				margin-bottom: 10px;
+			}
+
+
+            /* Instructions Box for pronunciation guide */
+			.pronunciation-guide-box {
+				margin: 20px 0;
+			}
+
+			.pronunciation-guide {
+				background-color: #007bff;
+				color: white;
+				border: none;
+				padding: 12px 18px;
+				font-size: 16px;
+				border-radius: 6px;
+				cursor: pointer;
+				font-weight: bold;
+				transition: background-color 0.3s ease;
+				width: 200px;
+				text-align: center;
+			}
+
+			.instructions-toggle:hover {
+				background-color: #0056b3;
+			}
+
+			.pronunciation-content {
+				display: none;
+				margin-top: 15px;
+				background: #ffffff;
+				border: 2px solid #007bff;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+				line-height: 1.6;
+			}
+
+			.pronunciation-content h3 {
+				margin-top: 0;
+				color: #333;
+			}
+
+			.consonants-pronunciation ol {
+				padding-left: 20px;
+			}
+
+			.consonants-pronunciation li {
+				margin-bottom: 10px;
+			}

@@ -336,14 +336,51 @@ const defaultWords = {
     words: ["AMATA", "MAMA", "KURYA", "KUGURUKA", "INZU", "ISUKU", "AMAFARANGA", "UMUTIMA", "UMUSORE", "UMUKOBWA"],
     theme: "Default Puzzle"
 };
+// /////////////////////////////////////////////////////////////////////////////////
+// // Load themes saved by Admin
+// async function loadGameThemes() {
+//   try {
+//     const doc = await db.collection("wordsearch").doc("themes").get();
+    
+//     if (doc.exists) {
+//       allThemes = doc.data().themes;
+      
+//       if (allThemes.length > 0) {
+//         // Populate the dropdown
+//         const selector = document.getElementById('theme-selector');
+//         selector.innerHTML = '<option value="">-- Select Theme --</option>';
+//         allThemes.forEach((t, i) => {
+//           const option = document.createElement('option');
+//           option.value = i;
+//           option.text = t.theme;
+//           selector.appendChild(option);
+//         });
+//         return;
+//       }
+//     }
 
-// Load themes saved by Admin
+//     // ❌ No Admin themes found → pick random fallback
+//     const randomIndex = Math.floor(Math.random() * defaultThemes.length);
+//     const chosen = defaultThemes[randomIndex];
+//     console.log("⚡ Using random fallback theme:", chosen.theme);
+//     await generator.generatePuzzle(chosen.words, chosen.theme);
+
+//   } catch (err) {
+//     console.error("Error loading from Firebase:", err);
+//   }
+
+//   // fallback if no admin data
+//   await generator.generatePuzzle(defaultWords.words, defaultWords.theme);
+// }
 async function loadGameThemes() {
   try {
-    const doc = await db.collection("wordsearch").doc("themes").get();
-    
-    if (doc.exists) {
-      allThemes = doc.data().themes;
+    // Try to load a local JSON file named "themes.json" placed in the project root
+    // (or adjust the path to wherever you put it, e.g. "./data/themes.json")
+    const res = await fetch('./themes.json', { cache: 'no-cache' });
+    if (res.ok) {
+      const data = await res.json();
+      // support both { themes: [...] } and [...] formats
+      allThemes = Array.isArray(data) ? data : (data.themes || []);
       
       if (allThemes.length > 0) {
         // Populate the dropdown
@@ -352,24 +389,21 @@ async function loadGameThemes() {
         allThemes.forEach((t, i) => {
           const option = document.createElement('option');
           option.value = i;
-          option.text = t.theme;
+          option.text = t.theme || `Theme ${i+1}`;
           selector.appendChild(option);
         });
+        // load first theme by default
+        await generator.generatePuzzle(allThemes[0].words, allThemes[0].theme);
         return;
       }
+    } else {
+      console.warn('Could not fetch ./themes.json (status ' + res.status + '). Falling back to defaults.');
     }
-
-    // ❌ No Admin themes found → pick random fallback
-    const randomIndex = Math.floor(Math.random() * defaultThemes.length);
-    const chosen = defaultThemes[randomIndex];
-    console.log("⚡ Using random fallback theme:", chosen.theme);
-    await generator.generatePuzzle(chosen.words, chosen.theme);
-
   } catch (err) {
-    console.error("Error loading from Firebase:", err);
+    console.error('Error loading local themes.json:', err);
   }
 
-  // fallback if no admin data
+  // fallback if no local data
   await generator.generatePuzzle(defaultWords.words, defaultWords.theme);
 }
 
